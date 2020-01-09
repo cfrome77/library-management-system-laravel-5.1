@@ -15,6 +15,7 @@
                             <th>Quantity</th>
                             <th>Loans</th>
                             <th>Balance</th>
+                            <th>Checkouts</th>
                         </thead>
                         <tbody>
                             @foreach ($reports as $report)
@@ -24,6 +25,7 @@
                                     <td class="table-text"><div>{{ $report->quantity }}</div></td>
                                     <td class="table-text"><div>{{ $report->book_loans }}</div></td>
                                     <td class="table-text"><div>{{ $report->balance_quantity }}</div></td>
+                                    <td class="table-text"><div>{{ $report->checkouts }}</div></td>
                                 </tr>
                             @endforeach
                         </tbody>
