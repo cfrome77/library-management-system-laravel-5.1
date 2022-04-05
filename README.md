@@ -1,3 +1,5 @@
+**Note: This is a copy of the code from https://github.com/r3klaw/library-management-system-laravel-5.1 in which I have made some updates and ehancements. This code will be moved over to the forked repository in order to create merge request containing new feature suggestions and this repository will then be deleted**
+
 # libray-management-system
 A library management system for allowing users to borrow books
 
