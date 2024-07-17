@@ -63,7 +63,6 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|unique:users|max:255',
             'email' => 'required|email|unique:users|max:255',
-            'age' => 'required|integer',
         ]);
 
         User::create([
@@ -71,8 +70,7 @@ class UserController extends Controller
             'email' => $request->email,
             //set password to secret for now (password should be system generated and email to member)
             'password' => bcrypt('secret'),
-            'age' => $request->age,
-            'is_admin' => false,
+            'is_admin' => $request->admin,
         ]);
 
         return redirect('/admin/members');
@@ -101,13 +99,11 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'age' => 'required|integer',
         ]);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'age' => $request->age,
         ]);
 
         return redirect('/admin/members');

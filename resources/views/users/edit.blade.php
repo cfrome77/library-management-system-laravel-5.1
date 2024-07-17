@@ -34,14 +34,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="user-age" class="col-sm-3 control-label">Age</label>
-
-                            <div class="col-sm-6">
-                                <input type="text" name="age" id="user-age" class="form-control" value="{{ old('age',  isset($user->age) ? $user->age : null) }}">
-                            </div>
-                        </div>
-
                         <!-- Edit User Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">

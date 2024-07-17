@@ -34,11 +34,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="user-age" class="col-sm-3 control-label">Age</label>
-
-                            <div class="col-sm-6">
-                                <input type="text" name="age" id="user-age" class="form-control" value="{{ old('age') }}">
-                            </div>
+                            <label for="user-admin" class="col-sm-3 control-label">Admin</label>
+                            <input type="checkbox" name="admin" id="user-admin" value="{{ old('admin') }}">
                         </div>
                         <!-- Add User Button -->
                         <div class="form-group">

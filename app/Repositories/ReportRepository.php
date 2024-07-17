@@ -19,6 +19,8 @@ class ReportRepository
         foreach ($books as $book) {
             $book_loans = Book::find($book->id)->users()->where('status', 1)->count();
             $book->book_loans = $book_loans;
+            $user_name = Book::find($book->id)->users()->where('status', 1)->pluck('name')->toArray();
+            $book->checkouts = implode(", ",$user_name);
             $book->balance_quantity = $book->quantity - $book_loans;
 
             $report = array_add($report, $book->id, $book);

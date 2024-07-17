@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'age'
+        'name', 'email', 'password'
     ];
 
     /**
@@ -34,26 +34,6 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin;
-    }
-
-    /**
-     * Validate if user is senior
-     *
-     * @return boolean
-     */
-    public function isSenior()
-    {
-        return ($this->age > 12);
-    }
-
-    /**
-     * Validate if user is junior
-     *
-     * @return boolean
-     */
-    public function isJunior()
-    {
-        return ($this->age <= 12);
     }
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -10,7 +9,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -32,13 +30,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin'] ], function() {
-
         //Books-related routes
         Route::resource('books', 'BookController', ['only' => ['index', 'create', 'store']]);
         Route::get('/books/{book}/edit', 'BookController@edit');
         Route::put('/books/{book}', 'BookController@update');
         Route::delete('/books/{book}', 'BookController@destroy');
-
         //Members-related routes
         Route::resource('members', 'UserController', ['only' => ['index', 'create', 'store']]);
         Route::get('/members/{user}/edit', 'UserController@edit');

@@ -157,21 +157,6 @@ class BookController extends Controller
     {
         $validator = Validator::make($request->all(), []);
 
-        $validator->after(function($validator) {
-            if($this->books->canJuniorMemberBorrow()) {
-                $validator->errors()->add('id', 'You are only allowed to borrow 3 books.');
-            } 
-            else if($this->books->canSeniorMemberBorrow()) {
-                $validator->errors()->add('id', 'You are only allowed to borrow 6 books.');
-            }
-        });
-
-        if ($validator->fails()) {
-            return redirect('/member/books/search')
-                ->withInput()
-                ->withErrors($validator);
-        }
-
         $this->books->borrow($request->user(), $book);
 
         return redirect('/member/books');
