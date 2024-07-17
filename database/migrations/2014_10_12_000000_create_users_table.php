@@ -17,10 +17,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-<<<<<<< HEAD
-            $table->smallInteger('age');
-=======
->>>>>>> library-management-system/master
             $table->boolean('is_admin');
             $table->rememberToken();
             $table->timestamps();

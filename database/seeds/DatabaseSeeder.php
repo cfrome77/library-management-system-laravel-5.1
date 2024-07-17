@@ -12,10 +12,58 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Chris Frome',
-            'email' => 'laxchris77@gmail.com',
+            'name' => 'david rashid',
+            'email' => 'rashid.david12@gmail.com',
             'password' => bcrypt('secret'),
             'is_admin' => true,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'harsh patel',
+            'email' => 'patel@gmail.com',
+            'password' => bcrypt('secret'),
+            'is_admin' => false,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'James  Sichangi',
+            'email' => 'james@gmail.com',
+            'password' => bcrypt('secret'),
+            'is_admin' => false,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        DB::table('books')->insert([
+            'title' => 'The Grass',
+            'isbn' => '1-86092-049-7',
+            'author' => 'JK Rowling',
+            'quantity' => 10,
+            'shelf_location' => 'Shelf  A',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        DB::table('books')->insert([
+           'title' => 'The Higgler',
+            'isbn' => '1-86092-010-1',
+            'author' => 'Warrent Buffet',
+            'quantity' => 15,
+            'shelf_location' => 'Shelf  B',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        DB::table('books')->insert([
+           'title' => 'The Open Boat',
+            'isbn' => '1-86092-034-9',
+            'author' => 'Sebastian Marco',
+            'quantity' => 5,
+            'shelf_location' => 'Shelf  C',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);

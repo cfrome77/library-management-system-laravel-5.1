@@ -30,13 +30,9 @@ CREATE TABLE `books` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-<<<<<<< HEAD
   `isbn` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `quantity` int(11) NOT NULL,
   `shelf_location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-=======
-  `quantity` int(11) NOT NULL,
->>>>>>> library-management-system/master
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -45,16 +41,11 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-<<<<<<< HEAD
 INSERT INTO `books` (`id`, `title`, `author`, `isbn`, `quantity`, `shelf_location`, `created_at`, `updated_at`) VALUES
 (1, 'The Grass', 'JK Rowling', '1-86092-049-7', 10, 'Shelf  A', '2017-09-13 09:03:52', '2017-09-13 09:03:52'),
 (2, 'The Higgler', 'Warrent Buffet', '1-86092-010-1', 15, 'Shelf  B', '2017-09-13 09:03:52', '2017-09-13 09:03:52'),
 (3, 'The Open Boat', 'Sebastian Marco', '1-86092-034-9', 5, 'Shelf  C', '2017-09-13 09:03:52', '2017-09-13 09:03:52');
 
-=======
-INSERT INTO `books` (`id`, `title`, `author`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 'Personal Managment', 'Boy Scouts of America', 3, '2019-11-13 09:03:52', '2019-12-13 09:03:52');
->>>>>>> library-management-system/master
 -- --------------------------------------------------------
 
 --
@@ -109,8 +100,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Chris Frome', 'laxchris77@gmail.com', '$2y$10$tdmcAlTCTE1ZWnKHM2KZB.b.NGJpBfnqnLzJvWOgpRwc.0qg6Vdk6', 1, 'sXOMrfgpGz2ZG8vWhM2wvnJI8r2TsoeP8bM9BKMwCZdxhrOPhLbZPtFeAQfU', '2017-09-13 09:03:52', '2019-11-18 14:02:03'),
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `age`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'david rashid', 'rashid.david12@gmail.com', '$2y$10$tdmcAlTCTE1ZWnKHM2KZB.b.NGJpBfnqnLzJvWOgpRwc.0qg6Vdk6', 26, 1, 'sXOMrfgpGz2ZG8vWhM2wvnJI8r2TsoeP8bM9BKMwCZdxhrOPhLbZPtFeAQfU', '2017-09-13 09:03:52', '2017-09-18 14:02:03'),
+(2, 'reklaw', 'reklaw@gmail.com', '$2y$10$MAuUj0gmtT435MLhZ7e12OMuIhrP.guNPU0xT8c2fR0yrIZ/BnTaO', 18, 0, 'nHcK9u9LndXiT3b0ADbwPCStopq2434S9e7SbSBdlBJqQp3FSjdkB2nJCp37', '2017-09-13 09:03:52', '2017-09-15 09:09:43'),
+(3, 'jay', 'jay@gmail.com', '$2y$10$gdOXJsA/wik9h19B1CeBI.BFfbRqm.SmKtleYQGA2sakG2ZrtqVsi', 10, 0, NULL, '2017-09-13 09:03:52', '2017-09-13 09:05:50'),
+(5, 'adisa louice', 'louse@gmail.com', '$2y$10$akUflRkAClKE8ENJu67pCujSQHnjKbAVGKzYNnlv85D4nYk9PeK66', 20, 0, NULL, '2017-09-15 08:55:31', '2017-09-15 08:55:31');
 
 -- --------------------------------------------------------
 

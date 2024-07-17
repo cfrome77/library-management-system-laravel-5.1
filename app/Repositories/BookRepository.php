@@ -72,9 +72,38 @@ class BookRepository
      */
     public function borrow(User $user, Book $book)
     {
+        $expiry_date = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . ' + 1 second'));
+
         if($book->users()->where('user_id', $user->id)->where('status', 1)->count() == 0) {
-            $book->users()->attach($user->id, ['status' => 1]);
+            $book->users()->attach($user->id, ['status' => 1, 'expire_on' => $expiry_date]);
         }
     }
 
+    /**
+     * Computes the penalty for unreturned books after the set expiry date (used by penalty:compute command)
+     *
+     */
+    public function computePenalty()
+    {
+        $daily_penalty_charge = 100;
+
+        $expired_borrowed_books = DB::table('users_books')
+                                ->where('status', 1)
+                                ->whereRaw('expire_on < CURRENT_TIMESTAMP')
+                                ->get();
+
+        foreach($expired_borrowed_books as $borrowed) {
+            $penalty_days = floor((time() - strtotime($borrowed->expire_on)) / (1)) + 1;
+            $penalty_fee = ($penalty_days) ? ($daily_penalty_charge * $penalty_days) : 100;
+
+            DB::table('users_books')
+                ->where('id', $borrowed->id)
+                ->update(['penalty_fee' => $penalty_fee])
+                ->post();
+
+
+        }
+
+        return true;
+    }
 }
